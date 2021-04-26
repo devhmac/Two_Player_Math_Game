@@ -1,6 +1,6 @@
-require_relative './game_class'
-require_relative './questions_class'
-require_relative './player_class'
+require './game_class'
+require './questions_class'
+require './player_class'
 
 player1 = Player.new(1)
 player2 = Player.new(2)
