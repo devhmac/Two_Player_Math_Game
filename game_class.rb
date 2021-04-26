@@ -37,9 +37,9 @@ class Game
         answer = $stdin.gets.chomp
       
         if questions.eval_answer?(current_q,answer.to_i)
-          puts "Player #{self.current_player.id}: you got it right!"
+          puts "Player #{self.current_player.id}: you are correct!"
         else
-          puts "Player #{self.current_player.id}: That was incorrect, you have lost a life"
+          puts "Player #{self.current_player.id}: That was incorrect, you have lost a life..."
           self.current_player.lost_life
         end
       
