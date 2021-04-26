@@ -21,6 +21,8 @@ class Game
         puts "\n----- Game Over -----"
         puts p1.life == 0 ? "Player 2 wins with a score of #{p2.life}/3" : "Player 1 wins with a score of #{p1.life}/3" 
         @game_over = true
+        puts "Goodbye!"
+        puts "\n"
       end
     end
 
