@@ -9,9 +9,3 @@ class Player
   end
 end
 
-p1 = Player.new(1)
-
-puts p1.life
-puts p1.id
-p1.lost_life
-puts p1.life
