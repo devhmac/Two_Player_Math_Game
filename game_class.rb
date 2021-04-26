@@ -16,15 +16,34 @@ class Game
       @current_player == p1 ? @current_player = p2 : @current_player = p1
     end
 
-    def check_current_player_life
-      if(@current_player.life == 0)
-        @game_over = false
+    def check_game_status(p1,p2)
+      if p1.life == 0 || p2.life == 0
+        puts "----- Game Over -----"
+        puts p1.life == 0 ? "Player 2 wins with a score of #{p2.life}/3" : "Player 1 wins with a score of #{p1.life}/3" 
+        @game_over = true
       end
     end
 
-    def gameplay_loop
-      while self.game_over == false
-
+    def start_game (player1,player2,questions)
+      while game.game_over == false
+        self.set_current_player(player1,player2)
+      
+        puts "\n Player 1: #{player1.life}/3 vs Player 2: #{player2.life}/3 "
+        puts "---- start turn ----"
+        current_q = questions.gen_question
+      
+        puts "Player #{self.current_player.id}: what does #{current_q} equal."
+        answer = $stdin.gets.chomp
+      
+        if questions.eval_answer?(current_q,answer.to_i)
+          puts "Player #{self.current_player.id}: you got it right!"
+        else
+          puts "Player #{self.current_player.id}: That was incorrect, you have lost a life"
+          self.current_player.lost_life
+        end
+      
+        self.check_game_status(player1,player2)
+      
       end
     end
 
